@@ -12,14 +12,13 @@ Create a folder in `~/.use`, and then add folders inside for each client:
 
     ~
       .use/
-        dividata/
-        justin/
-        promptworks/
+        me/
+        my_company/
 
 Then in each folder, create a `.profile` file to be sourced when you `use` that profile.
 
-    # ~/.use/justin/.profile
-    export FOG_DIRECTORY=justincampbell
+    # ~/.use/me/.profile
+    export FOG_DIRECTORY=myname
 
 # Usage
 

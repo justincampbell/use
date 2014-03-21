@@ -1,0 +1,11 @@
+#!/bin/bash
+
+USE_DIR=${USE_DIR:-$HOME/.use}
+
+use() {
+  source $HOME/.profile
+
+  if [[ "$1" != "" ]]; then
+    source $USE_DIR/$1/.profile
+  fi
+}
