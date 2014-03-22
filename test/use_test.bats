@@ -7,9 +7,8 @@ load test_helper
 
   run use
 
-  echo $output
-
-  [ "$output" = "sourced home profile" ]
+  [ $output = "sourced home profile" ]
+  [ $status -eq 0 ]
 }
 
 @test "sources a user profile and company profile" {
@@ -18,6 +17,17 @@ load test_helper
 
   run use my_company
 
-  [ "${lines[0]}" = "sourced home profile" ]
-  [ "${lines[1]}" = "sourced company profile" ]
+  [ ${lines[0]} = "sourced home profile" ]
+  [ ${lines[1]} = "sourced company profile" ]
+  [ $status -eq 0 ]
+}
+
+@test "sources a user profile and fails on a missing company profile" {
+  fixture "home-profile-with-echo" "$HOME/.profile"
+
+  run use missing
+
+  [ ${lines[0]} = "sourced home profile" ]
+  [ ${lines[1]} = "$USE_DIR/missing/.profile not found" ]
+  [ $status -eq 1 ]
 }

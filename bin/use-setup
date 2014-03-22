@@ -6,6 +6,13 @@ use() {
   source $HOME/.profile
 
   if [[ "$1" != "" ]]; then
-    source $USE_DIR/$1/.profile
+    USE_PROFILE=$USE_DIR/$1/.profile
+
+    if [[ ! -f $USE_PROFILE ]]; then
+      echo "$USE_PROFILE not found"
+      return 1
+    fi
+
+    source $USE_PROFILE
   fi
 }
