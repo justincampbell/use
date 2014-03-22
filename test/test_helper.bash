@@ -1,8 +1,6 @@
 USE_SETUP=bin/use-setup
 
 setup() {
-  OLD_HOME=$HOME
-
   HOME=$BATS_TMPDIR/HOME
   USE_DIR=$BATS_TMPDIR/USE_DIR
 
@@ -10,12 +8,6 @@ setup() {
   mkdir -p $USE_DIR
 
   source $USE_SETUP
-}
-
-teardown() {
-  HOME=$OLD_HOME
-
-  use
 }
 
 fixture() {
