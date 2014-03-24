@@ -3,6 +3,8 @@
 USE_DIR=${USE_DIR:-$HOME/.use}
 
 use() {
+  unalias -a
+
   source $HOME/.profile
 
   if [[ "$1" != "" ]]; then
