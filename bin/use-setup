@@ -2,11 +2,15 @@
 
 USE_DIR=${USE_DIR:-$HOME/.use}
 
-use() {
+use_unalias() {
   unalias -a
+}
 
+use_home() {
   source $HOME/.profile
+}
 
+use_company() {
   if [[ "$1" != "" ]]; then
     USE_PROFILE=$USE_DIR/$1/.profile
 
@@ -17,4 +21,10 @@ use() {
 
     source $USE_PROFILE
   fi
+}
+
+use() {
+  use_unalias
+  use_home
+  use_company $1
 }
