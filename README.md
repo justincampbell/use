@@ -1,4 +1,4 @@
-# use
+# use [![Build Status](https://travis-ci.org/justincampbell/use.svg?branch=master)](https://travis-ci.org/justincampbell/use)
 
 `use` is a utility for managing project- or client-specific profile configurations. For example, maybe you have some AWS credentials for yourself, and some for work, and maybe some more for that friend you helped with that one startup thing. `use` lets you manage these environment-level credentials and configurations sanely.
 
