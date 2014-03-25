@@ -8,15 +8,17 @@ USE_ENV_PATTERNS=(
   KNIFE
   OPSCODE
 )
+USE_VERSION="0.0.1"
 
 use_help() {
-  echo "use beta"
+  echo "use $USE_VERSION"
   echo "github.com/justincampbell/use"
   echo ""
   echo "Usage:"
   echo "  use                 reset, source home profile"
   echo "  use my_company      reset, source home and my_company profiles"
-  echo "  use help/-h/--help  show this help"
+  echo "  use help            show this help"
+  echo "  use version         show the version"
   echo ""
 }
 
@@ -54,6 +56,11 @@ use_company() {
 use() {
   if [[ "$@" == *-h* ]] || [[ "$1" == "help" ]]; then
     use_help
+    return 0
+  fi
+
+  if [[ "$1" == "version" ]]; then
+    echo $USE_VERSION
     return 0
   fi
 
