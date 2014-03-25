@@ -9,6 +9,17 @@ USE_ENV_PATTERNS=(
   OPSCODE
 )
 
+use_help() {
+  echo "use beta"
+  echo "github.com/justincampbell/use"
+  echo ""
+  echo "Usage:"
+  echo "  use                 reset, source home profile"
+  echo "  use my_company      reset, source home and my_company profiles"
+  echo "  use help/-h/--help  show this help"
+  echo ""
+}
+
 use_unalias() {
   unalias -a
 }
@@ -41,6 +52,11 @@ use_company() {
 }
 
 use() {
+  if [[ "$@" == *-h* ]] || [[ "$1" == "help" ]]; then
+    use_help
+    return 0
+  fi
+
   use_unalias
   use_unset_env_vars
   use_home
