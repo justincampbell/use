@@ -1,9 +1,26 @@
 #!/bin/bash
 
 USE_DIR=${USE_DIR:-$HOME/.use}
+USE_ENV_PATTERNS=(
+  AWS
+  EC2
+  FOG
+  KNIFE
+  OPSCODE
+)
 
 use_unalias() {
   unalias -a
+}
+
+use_unset_env_vars() {
+  for env_var in $(env | cut -f 1 -d "=" | sort); do
+    for pattern in "${USE_ENV_PATTERNS[@]}"; do
+      if [[ $env_var =~ $pattern ]]; then
+        unset $env_var
+      fi
+    done
+  done
 }
 
 use_home() {
@@ -25,6 +42,7 @@ use_company() {
 
 use() {
   use_unalias
+  use_unset_env_vars
   use_home
   use_company $1
 }
