@@ -12,6 +12,10 @@ setup() {
   source $USE_SETUP
 }
 
+teardown() {
+  echo $output
+}
+
 fixture() {
   mkdir -p $(dirname $2)
   cp "test/fixtures/$1" "$2"
