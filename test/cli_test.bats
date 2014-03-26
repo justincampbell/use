@@ -33,7 +33,7 @@ load test_helper
 @test "prints the version when --version is passed" {
   run use version
 
-  echo $output | grep -E "\d+\.\d+\.\d+"
+  echo $output | grep -E "[0-9]+\.[0-9]+\.[0-9]+"
 }
 
 @test "shows error and help if an invalid option is passed" {
