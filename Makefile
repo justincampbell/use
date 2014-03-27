@@ -7,7 +7,7 @@ test:
 	zsh test/runner.sh
 
 release: tag
-	git push origin --tags
+	git push origin --tags -f
 
 tag:
 	git tag -f latest
