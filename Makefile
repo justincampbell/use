@@ -15,13 +15,13 @@ test:
 release: tag sha
 
 tag:
-	git tag -f latest
-	git tag | grep $(TAG) || git tag $(TAG)
+	git tag --force latest
+	git tag | grep $(TAG) || git tag --message "Release $(TAG)" --sign $(TAG)
 	git push origin
-	git push origin --tags -f
+	git push origin --force --tags
 
 pkg/$(ARCHIVE): pkg/
-	wget -O pkg/$(ARCHIVE) $(ARCHIVE_URL)
+	wget --output-document pkg/$(ARCHIVE) $(ARCHIVE_URL)
 
 pkg/:
 	mkdir pkg
