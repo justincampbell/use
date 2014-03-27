@@ -7,6 +7,7 @@ test:
 	zsh test/runner.sh
 
 release: tag
+	git push origin
 	git push origin --tags -f
 
 tag:
