@@ -1,6 +1,5 @@
 language: c
-install:
-  - sudo apt-get install zsh
+before_script:
   - git clone --depth 1 https://github.com/sstephenson/bats.git
   - export PATH=$PATH:bats/bin
 script: make test

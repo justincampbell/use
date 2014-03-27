@@ -3,8 +3,7 @@ INSTALL_LOCATION=/usr/local/$(SCRIPT)
 VERSION=$(shell source $(SCRIPT) && use --version)
 
 test:
-	bash test/runner.sh
-	zsh test/runner.sh
+	bats test
 
 release: tag
 	git push origin
