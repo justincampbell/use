@@ -1,4 +1,5 @@
 SCRIPT=bin/use-setup
+INSTALL_LOCATION=/usr/local/$(SCRIPT)
 VERSION=$(shell source $(SCRIPT) && use --version)
 
 test:
@@ -12,4 +13,10 @@ tag:
 	git tag -f latest
 	git tag v$(VERSION)
 
-.PHONY: test release tag
+install:
+	cp $(SCRIPT) $(INSTALL_LOCATION)
+
+uninstall:
+	rm $(INSTALL_LOCATION)
+
+.PHONY: test release tag install uninstall
