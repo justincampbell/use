@@ -1,4 +1,4 @@
-USE_SETUP=bin/use-setup
+SCRIPT=share/use/use.sh
 
 setup() {
   rm -rf $BATS_TMPDIR/use
@@ -9,7 +9,7 @@ setup() {
   mkdir -p $HOME
   mkdir -p $USE_DIR
 
-  source $USE_SETUP
+  source $SCRIPT
 }
 
 teardown() {
