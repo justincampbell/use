@@ -1,17 +1,33 @@
-SCRIPT=share/use/use.sh
-INSTALL_LOCATION=/usr/local/$(SCRIPT)
+HOMEPAGE=https://github.com/justincampbell/use
+PREFIX=/usr/local
+
 VERSION=$(shell source $(SCRIPT) && use --version)
+TAG=v$(VERSION)
+
+ARCHIVE=use-$(TAG).tar.gz
+ARCHIVE_URL=$(HOMEPAGE)/archive/$(TAG).tar.gz
+INSTALL_LOCATION=$(PREFIX)/$(SCRIPT)
+SCRIPT=share/use/use.sh
 
 test:
 	bats test
 
-release: tag
-	git push origin
-	git push origin --tags -f
+release: tag sha
 
 tag:
 	git tag -f latest
-	git tag v$(VERSION)
+	git tag | grep $(TAG) || git tag $(TAG)
+	git push origin
+	git push origin --tags -f
+
+pkg/$(ARCHIVE): pkg/
+	wget -O pkg/$(ARCHIVE) $(ARCHIVE_URL)
+
+pkg/:
+	mkdir pkg
+
+sha: pkg/$(ARCHIVE)
+	shasum pkg/$(ARCHIVE)
 
 install:
 	mkdir -p $(shell dirname $(INSTALL_LOCATION))
@@ -20,4 +36,4 @@ install:
 uninstall:
 	rm $(INSTALL_LOCATION)
 
-.PHONY: test release tag install uninstall
+.PHONY: test release tag sha install uninstall
