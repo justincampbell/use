@@ -4,6 +4,13 @@
 
 # Installation
 
+## [Homebrew](http://brew.sh)
+
+    brew tap justincampbell/formulae
+    brew install use
+
+## Package
+
     wget -O use-latest.tar.gz https://github.com/justincampbell/use/archive/latest.tar.gz use
     tar -zxvf use-latest.tar.gz
     cd use-latest/
