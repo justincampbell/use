@@ -11,6 +11,10 @@
 
 # Setup
 
+Add the following to your `~/.profile`:
+
+    source /usr/local/share/use/use.sh
+
 Create a folder in `~/.use`, and then add folders inside for each client:
 
     ~
