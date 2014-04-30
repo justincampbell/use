@@ -42,6 +42,15 @@ You can also `use` nothing, which essentially resets your current session:
 
     use # Same as above, but skip loading a named config.
 
+When you `use foo`, the `$USE` environment variable will be exported with "foo", so it can be used in a `PS1` or `PROMPT_COMMAND`:
+
+    use_prefix() {
+      if [[ $USE != "" ]]; then
+        echo -n "($USE) "
+      fi
+    }
+    export PS1='$(use_prefix)\W$ '
+
 # Examples
 
 ## AWS Configuration

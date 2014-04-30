@@ -41,8 +41,10 @@ use_home() {
 }
 
 use_company() {
-  if [[ "$1" != "" ]]; then
-    USE_PROFILE=$USE_DIR/$1/.profile
+  export USE="$1"
+
+  if [[ "$USE" != "" ]]; then
+    export USE_PROFILE=$USE_DIR/$USE/.profile
 
     if [[ ! -f $USE_PROFILE ]]; then
       echo "$USE_PROFILE not found"

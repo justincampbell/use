@@ -36,3 +36,15 @@ load test_helper
 
   [ $status -eq 0 ]
 }
+
+@test "exports USE with the current profile" {
+  fixture "empty-profile" "$HOME/.profile"
+  fixture "empty-profile" "$USE_DIR/my_company/.profile"
+
+  run_script "
+    use my_company
+    env | grep USE=my_company
+  "
+
+  [ $status -eq 0 ]
+}
