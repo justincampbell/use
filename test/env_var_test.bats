@@ -48,3 +48,21 @@ load test_helper
 
   [ $status -eq 0 ]
 }
+
+@test "does not set USE if the profile is not found" {
+  run_script "
+    use missing
+    env | grep USE=
+  "
+
+  [ $status -eq 1 ]
+}
+
+@test "does not set USE_PROFILE if the profile is not found" {
+  run_script "
+    use missing
+    env | grep USE_PROFILE=
+  "
+
+  [ $status -eq 1 ]
+}

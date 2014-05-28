@@ -48,6 +48,7 @@ use_company() {
 
     if [[ ! -f $USE_PROFILE ]]; then
       echo "$USE_PROFILE not found"
+      unset USE USE_PROFILE
       return 1
     fi
 
