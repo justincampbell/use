@@ -8,7 +8,7 @@ USE_ENV_PATTERNS=(
   KNIFE
   OPSCODE
 )
-USE_VERSION="0.2.1"
+USE_VERSION="0.2.2"
 
 use_help() {
   echo "use $USE_VERSION"
