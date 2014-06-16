@@ -67,7 +67,7 @@ use() {
     -*)
       echo "$@ is not a valid option"
       use_help
-      exit 1
+      return 1
       ;;
     *)
       use_unalias
