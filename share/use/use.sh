@@ -64,7 +64,7 @@ use() {
     --version|version)
       echo $USE_VERSION
       ;;
-    *-*)
+    -*)
       echo "$@ is not a valid option"
       use_help
       exit 1

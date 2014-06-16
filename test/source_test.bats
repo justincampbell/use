@@ -29,3 +29,14 @@ load test_helper
   [ ${lines[1]} = "$USE_DIR/missing/.profile not found" ]
   [ $status -eq 1 ]
 }
+
+@test "sources a company profile with a dash" {
+  fixture "home-profile-with-echo" "$HOME/.profile"
+  fixture "company-profile-with-echo" "$USE_DIR/my-company/.profile"
+
+  run use my-company
+
+  [ ${lines[0]} = "sourced home profile" ]
+  [ ${lines[1]} = "sourced company profile" ]
+  [ $status -eq 0 ]
+}
