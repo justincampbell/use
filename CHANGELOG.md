@@ -1,3 +1,7 @@
+# 0.2.3
+
+* Add DIGITALOCEAN, KEY, and TOKEN to environment variable patterns
+
 # 0.2.2
 
 * Fix bug when a profile name includes a dash

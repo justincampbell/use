@@ -11,7 +11,7 @@ USE_ENV_PATTERNS=(
   OPSCODE
   TOKEN
 )
-USE_VERSION="0.2.2"
+USE_VERSION="0.2.3"
 
 use_help() {
   echo "use $USE_VERSION"
