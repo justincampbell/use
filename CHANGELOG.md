@@ -1,3 +1,7 @@
+# 0.2.4
+
+* Add HEROKU to environment variable patterns
+
 # 0.2.3
 
 * Add DIGITALOCEAN, KEY, and TOKEN to environment variable patterns
