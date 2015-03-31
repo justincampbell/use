@@ -5,7 +5,7 @@ load test_helper
 
   run use
 
-  [ $output = "sourced home profile" ]
+  [ "$output" = "sourced home profile" ]
   [ $status -eq 0 ]
 }
 
@@ -15,8 +15,8 @@ load test_helper
 
   run use my_company
 
-  [ ${lines[0]} = "sourced home profile" ]
-  [ ${lines[1]} = "sourced company profile" ]
+  [ "${lines[0]}" = "sourced home profile" ]
+  [ "${lines[1]}" = "sourced company profile" ]
   [ $status -eq 0 ]
 }
 
@@ -25,8 +25,8 @@ load test_helper
 
   run use missing
 
-  [ ${lines[0]} = "sourced home profile" ]
-  [ ${lines[1]} = "$USE_DIR/missing/.profile not found" ]
+  [ "${lines[0]}" = "sourced home profile" ]
+  [ "${lines[1]}" = "$USE_DIR/missing/.profile not found" ]
   [ $status -eq 1 ]
 }
 
@@ -36,7 +36,7 @@ load test_helper
 
   run use my-company
 
-  [ ${lines[0]} = "sourced home profile" ]
-  [ ${lines[1]} = "sourced company profile" ]
+  [ "${lines[0]}" = "sourced home profile" ]
+  [ "${lines[1]}" = "sourced company profile" ]
   [ $status -eq 0 ]
 }
